@@ -16,21 +16,7 @@ int main(int argc, char const *argv[])
     std::vector<int> ivec(ia, std::end(ia));
     std::list<int> ilst(ia, std::end(ia));
 
-    // todo:对于此处的方式有错误不能理解
-    for (auto it = ivec.begin(); it != ivec.end(); ++it)
-        if (!(*it & 0x1))
-            it = ivec.erase(it);
-    // else
-    //     ++it;
-
-    // todo:对于此处的方式有错误不能理解
-    for (auto it = ilst.begin(); it != ilst.end(); ++it)
-        if (*it & 0x1)
-            it = ilst.erase(it);
-    // else
-    //     ++it;
-
-    for (auto i : ivec)
+        for (auto i : ivec)
         std::cout << i << " ";
     std::cout << std::endl;
 
@@ -38,28 +24,28 @@ int main(int argc, char const *argv[])
         std::cout << i << " ";
     std::cout << std::endl;
 
-    // std::vector<int> vec(ia, std::end(ia));
-    // std::list<int> lst(vec.begin(), vec.end());
+    std::vector<int> vec(ia, std::end(ia));
+    std::list<int> lst(vec.begin(), vec.end());
 
-    // for (auto it = lst.begin(); it != lst.end();)
-    //     if (*it & 0x1)
-    //         it = lst.erase(it);
-    //     else
-    //         ++it;
+    for (auto it = lst.begin(); it != lst.end();)
+        if (*it & 0x1)
+            it = lst.erase(it);
+        else
+            ++it;
 
-    // for (auto it = vec.begin(); it != vec.end();)
-    //     if (!(*it & 0x1))
-    //         it = vec.erase(it);
-    //     else
-    //         ++it;
+    for (auto it = vec.begin(); it != vec.end();)
+        if (!(*it & 0x1))
+            it = vec.erase(it);
+        else
+            ++it;
 
-    // for (auto i : vec)
-    //     std::cout << i << " ";
-    // std::cout << std::endl;
+    for (auto i : vec)
+        std::cout << i << " ";
+    std::cout << std::endl;
 
-    // for (auto i : lst)
-    //     std::cout << i << " ";
-    // std::cout << std::endl;
+    for (auto i : lst)
+        std::cout << i << " ";
+    std::cout << std::endl;
 
     system("pause");
     return 0;
