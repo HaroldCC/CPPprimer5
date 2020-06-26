@@ -57,5 +57,9 @@
         "streambuf": "cpp",
         "chrono": "cpp",
         "ratio": "cpp"
-    }
+    },
+    "cSpell.words": [
+        "Haroldcc",
+        "svec"
+    ]
 }
