@@ -1,0 +1,84 @@
+/*
+* author��syc
+* website: www.cctry.com
+* time��2018-12-18
+*/
+#pragma once
+#include <string>
+#include <vector>
+#include <numeric>
+#include <algorithm>
+#include <functional>
+#include <iostream>
+#include <codecvt>
+#include <cstdarg>
+using namespace std;
+
+#ifdef _UNICODE
+#define string_t wstring
+#else
+#define string_t string
+#endif
+
+//#define CODE_CONVERT_USE_CPP11
+#define CODE_CONVERT_USE_WIN32
+//#define CODE_CONVERT_USE_ICONV
+
+class string_util
+{
+public:
+	string_util();
+	~string_util();
+
+public:
+	static std::string &trim_l(std::string &str);
+	static std::string &trim_r(std::string &str);
+	static std::string &trim(std::string &str);
+	static std::string &reverse(std::string &str);
+
+	static std::string &to_upper(std::string &str);
+	static std::string to_upper_copy(std::string &str);
+
+	static std::string &to_lower(std::string &str);
+	static std::string to_lower_copy(std::string &str);
+
+	static std::string left(std::string &str, size_t n_count);
+	static std::string right(std::string &str, size_t n_count);
+	static std::string mid(std::string &str, size_t i_start, size_t n_count);
+	static std::string mid_l_r(std::string &str, std::string str_left, std::string str_right, bool b_inc_start = false, bool b_inc_end = false);
+	static std::string span_including(std::string &str, std::string str_key);
+	static std::string span_excluding(std::string &str, std::string str_key);
+
+	static bool start_with(std::string &str, std::string str_begin);
+	static bool end_with(std::string &str, std::string str_end);
+	static bool contain(std::string &str, std::string str_sub);
+	static bool is_empty(std::string &str);
+
+	static std::string format(const std::string fmt, ...);
+	static std::string &append_format(std::string &str, const std::string fmt, ...);
+	static std::string &erase(std::string &str, char ch);
+	static bool replace(std::string &str, const std::string &from, const std::string &to);
+	static void replace_all(std::string &str, const std::string &from, const std::string &to);
+	static int string_i_cmp(std::string lhs, std::string rhs);
+	static void split(std::string &str, std::string pattern, vector<std::string> &arrout);
+	static std::string join(std::vector<string> &arr_string, std::string pattern = "");
+
+	static std::wstring a2w_string(std::string str_a);
+	static std::string w2a_string(std::wstring str_w);
+
+	static string_t to_string(std::string str_a);
+	static string_t to_string(std::wstring str_w);
+
+	static std::wstring to_wstring(string_t str);
+	static std::string to_astring(string_t str);
+
+public:
+	static std::wstring gbk2unicode(std::string str_gbk);
+	static std::string unicode2gbk(std::wstring str_unicode);
+
+	static std::string gbk2utf8(std::string str_gbk);
+	static std::string utf82gbk(std::string str_utf8);
+
+	static std::string unicode2utf8(std::wstring str_unicode);
+	static std::wstring utf82unicode(std::string str_utf8);
+};
