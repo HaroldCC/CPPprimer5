@@ -56,7 +56,8 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "chrono": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "codecvt": "cpp"
     },
     "cSpell.words": [
         "Haroldcc",
